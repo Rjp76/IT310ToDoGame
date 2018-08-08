@@ -48,7 +48,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="float-right">
-                               /* {{ $questions->links() }} */
+                                /* {{ $questions->links() }} */
                             </div>
                         </div>
 
