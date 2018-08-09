@@ -1,11 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-
 class HomeController extends Controller
 {
     /**
@@ -17,7 +13,6 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -25,7 +20,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        /*this is new i promise i forgot to make a seperate branch*/
         $user = Auth::user();
         $questions = $user->questions()->paginate(6);
         return view('home')->with('questions', $questions);
