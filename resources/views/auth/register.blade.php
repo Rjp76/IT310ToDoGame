@@ -11,32 +11,6 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="form-group row">
-                                <label for="fname" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="fname" type="text" class="form-control{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" required autofocus>
-
-                                    @if ($errors->has('fname'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('fname') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="lname" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="lname" type="text" class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}" name="lname" value="{{ old('lname') }}" required autofocus>
-
-                                    @if ($errors->has('lname'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('lname') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
