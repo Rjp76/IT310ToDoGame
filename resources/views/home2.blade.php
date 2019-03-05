@@ -6,31 +6,31 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Questions
-           <             <a class="btn btn-primary float-right" href="{{ route('task.create') }}">
+                        <a class="btn btn-primary float-right" href="{{ route('questions.create') }}">
                             Create a Question
                         </a>
 
                         <div class="card-body">
 
                             <div class="card-deck">
-                                @forelse($task as $tasks)
+                                @forelse($questions as $question)
                                     <div class="col-sm-4 d-flex align-items-stretch">
                                         <div class="card mb-3 ">
                                             <div class="card-header">
                                                 <small class="text-muted">
-                                                    Updated: {{ $tasks->created_at->diffForHumans() }}
-                                                    Answers: {{ $tasks->answers()->count() }}
+                                                    Updated: {{ $question->created_at->diffForHumans() }}
+                                                    Answers: {{ $question->answers()->count() }}
 
                                                 </small>
                                             </div>
                                             <div class="card-body">
-                                                <p class="card-text">{{$tasks->body}}</p>
+                                                <p class="card-text">{{$question->body}}</p>
                                             </div>
                                             <div class="card-footer">
                                                 <p class="card-text">
 
                                                     <a class="btn btn-primary float-right"
-                                                       href="{{ route('task.show', ['task_id' => $tasks->id]) }}">
+                                                       href="{{ route('questions.show', ['id' => $question->id]) }}">
                                                         View
                                                     </a>
                                                 </p>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="float-right">
-                                 {{ $task->links() }}
+                                {{ $questions->links() }}
                             </div>
                         </div>
 

@@ -20,7 +20,7 @@ class TaskController extends Controller
     {
         $task = new Task;
         $edit = FALSE;
-        return view('taskForm', ['task' => $task,'edit' => $edit ]);
+        return view('taskForm', ['task' => $task,'edit' => $edit, ['task_id' => $task->id] ]);
     }
     public function store(Request $request)
     {
@@ -35,7 +35,7 @@ class TaskController extends Controller
         $task->user()->associate(Auth::user());
         $task->save();
       //  return redirect()->route('home')->with('message', 'IT WORKS!');
-            return redirect()->route('task.show', ['id' => $task->id]);
+            return redirect()->route('task.show', ['task_id' => $task->id]);
     }
     public function show(Task $task)
     {
@@ -68,5 +68,11 @@ class TaskController extends Controller
     {
         $task->delete();
         return redirect()->route('home')->with('message', 'Deleted');
+    }
+    Public function complete(Task $task){
+        $task->delete();
+        $task->points= $task->points + 50;
+
+        return redirect()->route('home')->with('message', 'Finished!');
     }
 }
