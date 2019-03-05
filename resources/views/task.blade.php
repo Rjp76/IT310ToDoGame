@@ -14,7 +14,7 @@
                     <div class="card-footer">
                         <a class="btn btn-primary float-right"
                            href="{{ route('task.edit',['task_id'=> $task->id])}}">
-                            Edit Task
+                            Edit Tasks
                         </a>
 
                     </div>
