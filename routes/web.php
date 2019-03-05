@@ -35,6 +35,7 @@ Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@d
 Route::resources([
     'questions' => 'QuestionController',
 ]);
-Route::get('/tasks/{task_id}','TaskController@show')->name('task.show');
-Route::get('/tasks/{task_id','TaskController@show')->name('task.show');
-Route::get('/tasks/{task_id','TaskController@show')->name('task.show');
+Route::get('/task/{task_id}','TaskController@show')->name('task.show');
+Route::get('/task/{task_id}/create','TaskController@create')->name('task.create');
+Route::delete('/task/{task_id','TaskController@destroy')->name('task.destroy');
+Route::get('/task', 'TaskController@index')->name('task');
