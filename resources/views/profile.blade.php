@@ -11,6 +11,8 @@
                         <span class="font-weight-bold">First Name:</span> {{$profile->fname}}</br>
                         <span class="font-weight-bold">Last Name: </span>{{$profile->lname}}</br>
                         <span class="font-weight-bold">Body: </span>{{$profile->body}}</br>
+                        <span class="font-weight-bold">Points: </span>{{profile.viewPoints}}</br>
+
                     </div>
                     <div class="card-footer">
                         <a class="btn btn-success float-right" href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">

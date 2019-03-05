@@ -5,8 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Questions
-           <             <a class="btn btn-primary float-right" href="{{ route('task.create') }}">
+                    <div class="card-header">Tasks
+                        <a class="btn btn-primary float-right" href="{{ route('task.create') }}">
                             Create a Question
                         </a>
 
@@ -19,7 +19,6 @@
                                             <div class="card-header">
                                                 <small class="text-muted">
                                                     Updated: {{ $tasks->created_at->diffForHumans() }}
-                                                    Answers: {{ $tasks->answers()->count() }}
 
                                                 </small>
                                             </div>
@@ -46,7 +45,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="float-right">
-                                 {{ $task->links() }}
+                                {{ $task->links() }}
                             </div>
                         </div>
 

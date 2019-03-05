@@ -107,4 +107,7 @@ class ProfileController extends Controller
     {
         //
     }
+    public function viewPoints($points){
+        //
+    }
 }

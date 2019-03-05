@@ -12,15 +12,13 @@ class TaskController extends Controller
     }
     public function index()
     {
-        $user = Auth::user();
-        $task = $user->questions()->paginate(6);
-        return view('task')->with('task', $task);
+
     }
     public function create()
     {
         $task = new Task;
         $edit = FALSE;
-        return view('taskForm', ['task' => $task,'edit' => $edit, ['task_id' => $task->id] ]);
+        return view('taskForm', ['task' => $task,'edit' => $edit ]);
     }
     public function store(Request $request)
     {
@@ -34,8 +32,8 @@ class TaskController extends Controller
         $task = new Task($input);
         $task->user()->associate(Auth::user());
         $task->save();
-      //  return redirect()->route('home')->with('message', 'IT WORKS!');
-            return redirect()->route('task.show', ['task_id' => $task->id]);
+        return redirect()->route('home')->with('message', 'IT WORKS!');
+        // return redirect()->route('questions.show', ['id' => $question->id]);
     }
     public function show(Task $task)
     {
@@ -44,7 +42,7 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         $edit = TRUE;
-        return view('TaskForm', ['task' => $task, 'edit' => $edit ]);
+        return view('TaskForm', ['task' => $task, 'edit' => $edit]);
     }
     public function update(Request $request, Task $task)
     {
@@ -64,15 +62,14 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(Task $task, $id)
     {
-        $task->delete();
-        return redirect()->route('home')->with('message', 'Deleted');
+        $task->delete($id);
+        return redirect()->route('home')->with('message', 'Task Canceled');
     }
-    Public function complete(Task $task){
-        $task->delete();
-        $task->points= $task->points + 50;
-
+    public function complete(Task $task, $id){
+        users::table('users',$id)->increment('points',50);
+        $task->delete($id);
         return redirect()->route('home')->with('message', 'Finished!');
     }
 }
