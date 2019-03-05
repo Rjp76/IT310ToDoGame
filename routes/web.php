@@ -40,7 +40,8 @@ Route::get('/task/{task_id}/edit','TaskController@edit')->name('task.edit');
 
 Route::get('/task/create','TaskController@create')->name('task.create');
 Route::delete('/task/{task_id}','TaskController@complete')->name('task.complete'); */
-Route::delete('/home','TaskController@destroy')->name('task.destroy');
+Route::delete('/task/{task}','TaskController@destroy')->name('task.destroy');
+Route::delete('/task/{task)','TaskController@complete')->name('task.complete');
 Route::resources([
     'task'=> 'TaskController'
 ]);
