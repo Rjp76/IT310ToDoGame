@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
+use App\Profile;
 use Illuminate\Support\Facades\Auth;
 class TaskController extends Controller
 {
@@ -10,9 +11,13 @@ class TaskController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
-    {
+   // public function index()
+    //{
 
+    //}
+    public function destroy(Task $task){
+        $task->delete();
+        return redirect()->route('home')->with('message', 'Deleted');
     }
     public function create()
     {
@@ -54,7 +59,7 @@ class TaskController extends Controller
         ]);
         $task->body = $request->body;
         $task->save();
-        return redirect()->route('task.show',['task_id' => $task->id])->with('message', 'Saved');
+        return redirect()->route('task.show',['task' => $task->id])->with('message', 'Saved');
     }
     /**
      * Remove the specified resource from storage.
@@ -62,14 +67,5 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task, $id)
-    {
-        $task->delete($id);
-        return redirect()->route('home')->with('message', 'Task Canceled');
-    }
-    public function complete(Task $task, $id){
-        users::table('users',$id)->increment('points',50);
-        $task->delete($id);
-        return redirect()->route('home')->with('message', 'Finished!');
-    }
+
 }

@@ -37,10 +37,10 @@ Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@d
 /*Route::get('/task/{task_id}','TaskController@show')->name('task.show');
 Route::get('/task/{task_id}/create','TaskController@store')->name('task.store');
 Route::get('/task/{task_id}/edit','TaskController@edit')->name('task.edit');
-Route::delete('/task/{task_id}','TaskController@destroy')->name('task.destroy');
+
 Route::get('/task/create','TaskController@create')->name('task.create');
 Route::delete('/task/{task_id}','TaskController@complete')->name('task.complete'); */
-Route::delete('/task/{task_id}','TaskController@complete')->name('task.complete');
+Route::delete('/home','TaskController@destroy')->name('task.destroy');
 Route::resources([
     'task'=> 'TaskController'
 ]);

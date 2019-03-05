@@ -19,6 +19,7 @@ class CreateProfilesTable extends Migration
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
             $table->longText('body')->nullable();
+            $table->integer('points')->nullable();
             $table->timestamps();
         });
     }

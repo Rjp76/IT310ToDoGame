@@ -23,8 +23,9 @@ class ProfileController extends Controller
     public function create()
     {
         $profile = new Profile();
+        $points = 0;
         $edit = FALSE;
-        return view('profileForm', ['profile' => $profile,'edit' => $edit  ]);
+        return view('profileForm', ['profile' => $profile,'edit' => $edit, 'points'=>$points]);
     }
     /**
      * Store a newly created resource in storage.
@@ -72,7 +73,7 @@ class ProfileController extends Controller
         $user = User::find($user);
         $profile = $user->profile;
         $edit = TRUE;
-        return view('profileForm', ['profile' => $profile, 'edit' => $edit ]);
+        return view('profileForm', ['profile' => $profile, 'edit' => $edit]);
     }
     /**
      * Update the specified resource in storage.
@@ -105,9 +106,6 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-    public function viewPoints($points){
         //
     }
 }

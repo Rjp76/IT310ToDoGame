@@ -17,11 +17,6 @@
                             Edit Task
                         </a>
 
-                        <a class="btn btn-primary float-right"
-                           href="{{ route('task.complete',['task_id'=> $task->id])}}" margin="5px">
-                            Finish Task
-                        </a>
-
                     </div>
                 </div>
             </div>

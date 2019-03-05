@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Tasks
                         <a class="btn btn-primary float-right" href="{{ route('task.create') }}">
-                            Create a Question
+                            Make a task
                         </a>
 
                         <div class="card-body">
@@ -27,7 +27,9 @@
                                             </div>
                                             <div class="card-footer">
                                                 <p class="card-text">
-
+                                                    {{ Form::open(['method'  => 'DELETE', 'route' => ['task.destroy', $tasks->id]])}}
+                                                    <button class="btn btn-danger float-right mr-2" value="submit" type="submit" id="submit">Delete
+                                                    </button>
                                                     <a class="btn btn-primary float-right"
                                                        href="{{ route('task.show', ['task_id' => $tasks->id]) }}">
                                                         View

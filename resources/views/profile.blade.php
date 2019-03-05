@@ -11,7 +11,7 @@
                         <span class="font-weight-bold">First Name:</span> {{$profile->fname}}</br>
                         <span class="font-weight-bold">Last Name: </span>{{$profile->lname}}</br>
                         <span class="font-weight-bold">Body: </span>{{$profile->body}}</br>
-                        <span class="font-weight-bold">Points: </span>{{profile.viewPoints}}</br>
+                        <span class="font-weight-bold">Balance: </span>{{$profile->points}}</br>
 
                     </div>
                     <div class="card-footer">
