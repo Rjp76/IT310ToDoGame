@@ -21,7 +21,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $questions = $user->questions()->paginate(6);
-        return view('home')->with('questions', $questions);
+        $task = $user->questions()->paginate(6);
+        return view('home')->with('task', $task);
     }
 }
